@@ -7,6 +7,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import About from './About'
+import Skills from './Skills'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -74,7 +75,7 @@ export default function Header() {
         <About></About>
       </TabPanel>
       <TabPanel value={value} index="two">
-        Item Two
+        <Skills></Skills>
       </TabPanel>
       <TabPanel value={value} index="three">
         Item Three
