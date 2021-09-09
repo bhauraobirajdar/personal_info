@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
+About.propTypes = {
+    
+}
 
 function About(props) {
 

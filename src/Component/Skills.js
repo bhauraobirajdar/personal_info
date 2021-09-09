@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SkillBar from 'react-skillbars';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-
+import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,15 +17,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 function Skills(props) {
-    const classes = useStyles();
-
-    const skills = [
-        { type: "NodeJs", level: 85 },
-        { type: "Javascript", level: 75 },
-        { type: "Posgres", level: 80 },
-        { type: "Docker", level: 70 }
-    ],
-    colors = {
+    useEffect(() => {
+        props.getSkills();
+    }, [])
+    const colors = {
         "bar": "#3498db",
         "title": {
             "text": "#fff",
@@ -37,11 +32,12 @@ function Skills(props) {
             <Grid container spacing={3}>
                 <Grid item xs={4}></Grid>
                 <Grid item xs={8}>
-                    <SkillBar skills={skills} colors={colors} />
-
+                    {props.skillListTest &&
+                        <SkillBar skills={props && props.skillListTest} colors={colors} />
+                    }
                 </Grid>
             </Grid>
-
+               
         </div>
     );
 }
